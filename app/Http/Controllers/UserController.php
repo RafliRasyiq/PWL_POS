@@ -22,15 +22,21 @@ class UserController extends Controller
         // ];
         // UserModel::where('username', 'customer-1')->update($data); //update data user
 
-        $data = [
-            'level_id' => 2,
-            'username' => 'manager_tiga',
-            'nama' => 'Manager 3',
-            'password' => Hash::make('12345'),
-        ];    
+        // $data = [
+        //     'level_id' => 2,
+        //     'username' => 'manager_tiga',
+        //     'nama' => 'Manager 3',
+        //     'password' => Hash::make('12345'),
+        // ];    
         
         // coba akses model UserModel
-        $user = UserModel::all(); // ambil semua data dari tabel m_user
+        // $user = UserModel::firstWhere('level_id', 1)->first(); // ambil semua data dari tabel m_user
+        // $user = UserModel::findOr(1, ['username', 'nama'], function (){
+        //     abort(404);
+        // });
+        $user = UserModel::findOr(20, ['username', 'nama'], function (){
+            abort(404);
+        });
         return view('user', ['data' => $user]);
     }
 }
