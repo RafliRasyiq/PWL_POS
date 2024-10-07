@@ -16,6 +16,10 @@ class UserModel extends Model
 
     protected $fillable = ['level_id','username','nama', 'password'];
 
+    protected $hidden = ['password']; // jangan di tampilkan saat select
+
+    protected $casts = ['password' => 'hashed']; // casting password agar otomatis di hash
+
     public function level():BelongsTo{
         return $this->belongsTo(LevelModel::class, 'level_id','level_id');
     }
