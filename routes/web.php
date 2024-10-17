@@ -86,7 +86,7 @@ Route::middleware(['auth'])->group(function(){
         Route::delete('/{id}', [KategoriController::class, 'destroy']); // menghapus data kategori
     });
     
-    Route::middleware(['authorize:ADM,MNG,STF'])->group(function () {
+    Route::group(['prefix' => 'barang'], function () {
         Route::get('/', [BarangController::class, 'index']); // menampilkan halaman awal barang
         Route::post('/list', [BarangController::class, 'list']); // menampilkan data barang dalam bentuk json untuk datatables
         Route::get('/create', [BarangController::class, 'create']); // menampilkan halaman form tambah barang
@@ -100,6 +100,8 @@ Route::middleware(['auth'])->group(function(){
         Route::put('/{id}/update_ajax', [BarangController::class, 'update_ajax']);
         Route::get('/{id}/delete_ajax', [BarangController::class, 'confirm_ajax']);
         Route::delete('/{id}/delete_ajax', [BarangController::class, 'delete_ajax']);
+        Route::get('/import', [BarangController::class, 'import']);
+        Route::post('/import_ajax', [BarangController::class, 'import_ajax']);
         Route::delete('/{id}', [BarangController::class, 'destroy']); // menghapus data barang
     });
     
