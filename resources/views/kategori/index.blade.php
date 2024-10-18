@@ -6,7 +6,9 @@
         <div class="card-header">
             <h3 class="card-title">{{ $page->title }}</h3>
             <div class="card-tools">
-                <a class="btn btn-sm btn-primary mt-1" href="{{ url('kategori/create') }}">Tambah</a>
+                <button onclick="modalAction('{{ url('/kategori/import') }}')" class="btn btn-info">Import kategori</button>
+                <a href="{{ url('/kategori/export_excel') }}" class="btn btn-primary"><i class="fa fa-file-excel"></i> Export kategori</a>
+                <a href="{{ url('/kategori/export_pdf') }}" class="btn btn-warning"><i class="fa fa-file-pdf"></i> Export kategori</a>
                 <button onclick="modalAction('{{ url('/kategori/create_ajax') }}')"
                     class="btn btn-sm btn-success mt-1">Tambah
                     Ajax</button>
@@ -23,7 +25,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Kode</th>
+                        <th>Kode Kategori</th>
                         <th>Nama Kategori</th>
                         <th>Aksi</th>
                     </tr>
