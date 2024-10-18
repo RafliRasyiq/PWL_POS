@@ -6,8 +6,10 @@
             <div class="card-title">{{ $page->title }}</div>
             <div class="card-tools">
                 <button onclick="modalAction('{{ url('/user/import') }}')" class="btn btn-info">Import user</button>
-                <a href="{{ url('/user/export_excel') }}" class="btn btn-primary"><i class="fa fa-file-excel"></i> Export user</a>
-                <a href="{{ url('/user/export_pdf') }}" class="btn btn-warning"><i class="fa fa-file-pdf"></i> Export user</a>
+                <a href="{{ url('/user/export_excel') }}" class="btn btn-primary"><i class="fa fa-file-excel"></i> Export
+                    user</a>
+                <a href="{{ url('/user/export_pdf') }}" class="btn btn-warning"><i class="fa fa-file-pdf"></i> Export
+                    user</a>
                 <button onclick="modalAction('{{ url('user/create_ajax') }}')" class="btn btn-sm btn-success mt-1">Tambah
                     Ajax</button>
             </div>
@@ -42,6 +44,7 @@
                         <th>Username</th>
                         <th>Nama</th>
                         <th>Level Pengguna</th>
+                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -98,6 +101,12 @@
                     // mengambil data level hasil dari ORM berelasi
                     data: "level.level_nama",
                     className: "",
+                    orderable: false,
+                    searchable: false
+                }, {
+                    data: "foto",
+                    className: "",
+                    width: "14%",
                     orderable: false,
                     searchable: false
                 }, {

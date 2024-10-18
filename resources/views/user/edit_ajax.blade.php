@@ -16,7 +16,8 @@
         </div>
     </div>
 @else
-    <form action="{{ url('/user/' . $user->user_id . '/update_ajax') }}" method="POST" id="form-edit">
+    <form action="{{ url('/user/' . $user->user_id . '/update_ajax') }}" method="POST" id="form-edit"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div id="modal-master" class="modal-dialog modal-lg" role="document">
@@ -32,8 +33,8 @@
                         <select name="level_id" id="level_id" class="form-control" required>
                             <option value="">- Pilih Level -</option>
                             @foreach ($level as $l)
-                                <option {{ $l->level_id == $user->level_id ? 'selected' : '' }}
-                                    value="{{ $l->level_id }}">{{ $l->level_nama }}</option>
+                                <option {{ $l->level_id == $user->level_id ? 'selected' : '' }} value="{{ $l->level_id }}">
+                                    {{ $l->level_nama }}</option>
                             @endforeach
                         </select>
                         <small id="error-level_id" class="error-text form-text textdanger"></small>
@@ -56,6 +57,13 @@
                         <small class="form-text text-muted">Abaikan jika tidak ingin ubah
                             password</small>
                         <small id="error-password" class="error-text form-text textdanger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Foto</label>
+                        <input type="file" name="foto" id="foto" class="form-control" accept=".png,.jpg,.jpeg">
+                        <small class="form-text text-muted">Abaikan jika tidak ingin ubah
+                            foto</small>
+                        <small id="error-foto" class="error-text form-text text-danger"></small>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -86,13 +94,19 @@
                     password: {
                         minlength: 6,
                         maxlength: 20
-                    }
+                    },
+                    foto: {
+                        accept: "png,jpg,jpeg"
+                    },
                 },
                 submitHandler: function(form) {
+                    var formData = new FormData(form);
                     $.ajax({
                         url: form.action,
                         type: form.method,
-                        data: $(form).serialize(),
+                        data: formData,
+                        processData: false,
+                        contentType: false,
                         success: function(response) {
                             if (response.status) {
                                 $('#myModal').modal('hide');
