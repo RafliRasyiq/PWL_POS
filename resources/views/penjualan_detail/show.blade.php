@@ -6,7 +6,7 @@
             <div class="card-tools"></div>
         </div>
         <div class="card-body">
-            @empty($stok)
+            @empty($detail)
                 <div class="alert alert-danger alert-dismissible">
                     <h5><i class="icon fas fa-ban"></i> Kesalahan!</h5>
                     Data yang Anda cari tidak ditemukan.
@@ -15,31 +15,28 @@
                 <table class="table table-bordered table-striped table-hover table-sm">
                     <tr>
                         <th>ID</th>
-                        <td>{{ $stok->stok_id }}</td>
+                        <td>{{ $detail->detail_id }}</td>
                     </tr>
                     <tr>
-                        <th>Supplier ID</th>
-                        <td>{{ $stok->supplier->supplier_id }}</td>
+                        <th>Kode Penjualan</th>
+                        <td>{{ $detail->penjualan->penjualan_kode }}</td>
                     </tr>
                     <tr>
-                        <th>Barang ID</th>
-                        <td>{{ $stok->barang->barang_id }}</td>
+                        <th>Barang Nama</th>
+                        <td>{{ $detail->barang->barang_nama }}</td>
                     </tr>
                     <tr>
-                        <th>User ID</th>
-                        <td>{{ $stok->user->user_id }}</td>
+                        <th>Harga</th>
+                        <td>{{ $detail->harga }}</td>
                     </tr>
                     <tr>
-                        <th>Stok Tanggal</th>
-                        <td>{{ $stok->stok_tanggal }}</td>
+                        <th>Jumlah</th>
+                        <td>{{ $detail->jumlah }}</td>
                     </tr>
-                    <tr>
-                        <th>stok jumlah</th>
-                        <td>{{ $stok->stok_jumlah }}</td>
-                    </tr>
+                    
                 </table>
             @endempty
-            <a href="{{ url('stok') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
+            <a href="{{ url('penjualan_detail') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
         </div>
     </div>
 @endsection

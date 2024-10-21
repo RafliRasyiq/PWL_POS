@@ -24,10 +24,14 @@ class AuthController extends Controller
             $credentials = $request->only('username', 'password');
 
             if (Auth::attempt($credentials)) {
+                $user = Auth::user();
+                $profileImage = $user->foto ? 'profile_pictures/' . $user->foto : null;
+            
                 session([
-                    'profile_img_path' => Auth::user()->foto,
-                    'user_id' => Auth::user()->user_id
+                    'profile_img_path' => $profileImage,
+                    'user_id' => $user->user_id
                 ]);
+            
                 return response()->json([
                     'status' => true,
                     'message' => 'Login Berhasil',
