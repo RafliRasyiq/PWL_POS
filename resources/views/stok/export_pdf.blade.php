@@ -96,22 +96,22 @@
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Supplier ID</th>
-                    <th>Barang ID</th>
-                    <th>User ID</th>
-                    <th>Stok Tanggal</th>
-                    <th>Stok Jumlah</th>
+                    <th>Nama Supplier</th>
+                    <th>Nama Barang</th>
+                    <th>Nama User</th>
+                    <th class="text-right">Tanggal Stok</th>
+                    <th class="text-right">Jumlah Stok</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($stok as $b)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $b->supplier_id }}</td>
-                        <td>{{ $b->barang_id }}</td>
-                        <td>{{ $b->user_id }}</td>
-                        <td>{{ $b->stok_tanggal }}</td>
-                        <td>{{ $b->stok_jumlah }}</td>
+                        <td>{{ $b->supplier->supplier_nama }}</td>
+                        <td>{{ $b->barang->barang_nama }}</td>
+                        <td>{{ $b->user->nama }}</td>
+                        <td class="text-right">{{ $b->stok_tanggal }}</td>
+                        <td class="text-right">{{ $b->stok_jumlah }}</td>
                     </tr>
                 @endforeach
             </tbody>

@@ -96,7 +96,7 @@
             <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Penjualan ID</th>
+                    <th>Pembeli</th>
                     <th>Nama Barang</th>
                     <th>Harga</th>
                     <th class="text-right">Jumlah</th>
@@ -106,7 +106,7 @@
                 @foreach ($detail as $b)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $b->penjualan->penjualan_id }}</td>
+                        <td>{{ $b->penjualan->pembeli }}</td>
                         <td>{{ $b->barang->barang_nama }}</td>
                         <td>{{ $b->harga }}</td>
                         <td class="text-right">{{ $b->jumlah }}</td>

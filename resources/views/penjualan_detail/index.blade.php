@@ -32,8 +32,8 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Penjualan ID</th>
-                        <th>Barang ID</th>
+                        <th>Pembeli</th>
+                        <th>Nama Barang</th>
                         <th>Harga</th>
                         <th>Jumlah</th>
                         <th>Aksi</th>
@@ -78,13 +78,13 @@
                     orderable: false,
                     searchable: false
                 }, {
-                    data: "penjualan_id",
+                    data: "penjualan.pembeli",
                     className: "",
                     width: "10%",
                     orderable: true,
                     searchable: false
                 }, {
-                    data: "barang.barang_id",
+                    data: "barang.barang_nama",
                     className: "",
                     width: "37%",
                     orderable: true,

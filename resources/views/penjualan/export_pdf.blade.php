@@ -97,7 +97,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th>User ID</th>
-                    <th>Username</th>
+                    <th>Nama User</th>
                     <th>Kode Penjualan</th>
                     <th>Pembeli</th>
                     <th class="text-right">Tanggal Penjualan</th>
@@ -108,7 +108,7 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $b->user->user_id }}</td>
-                        <td>{{ $b->user->username }}</td>
+                        <td>{{ $b->user->nama }}</td>
                         <td>{{ $b->penjualan_kode }}</td>
                         <td>{{ $b->pembeli }}</td>
                         <td class="text-right">{{ $b->penjualan_tanggal }}</td>

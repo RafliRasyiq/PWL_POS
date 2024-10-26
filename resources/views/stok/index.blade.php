@@ -68,13 +68,13 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered table-striped table-hover table-sm" id="table_stok">
+            <table class="table table-bordered table-striped table-hover table-sm" id="table-stok">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>supplier ID</th>
-                        <th>Barang ID</th>
-                        <th>User ID</th>
+                        <th>Nama Supplier</th>
+                        <th>Nama Barang</th>
+                        <th>Nama User</th>
                         <th>Stok tanggal</th>
                         <th>Stok Jumlah</th>
                         <th>Aksi</th>
@@ -95,7 +95,7 @@
         }
         var datastok;
         $(document).ready(function() {
-            datastok = $('#table_stok').DataTable({
+            datastok = $('#table-stok').DataTable({
                 // serverSide: true, jika ingin menggunakan server side processing
                 serverSide: true,
                 ajax: {
@@ -115,20 +115,20 @@
                     orderable: false,
                     searchable: false
                 }, {
-                    data: "supplier.supplier_id",
+                    data: "supplier.supplier_nama",
                     className: "",
                     // orderable: true, jika ingin kolom ini bisa diurutkan
                     orderable: true,
                     // searchable: true, jika ingin kolom ini bisa dicari
                     searchable: true
                 }, {
-                    data: "barang.barang_id",
+                    data: "barang.barang_nama",
                     className: "",
                     orderable: true,
                     searchable: true
                 }, {
                     // mengambil data level hasil dari ORM berelasi
-                    data: "user.user_id",
+                    data: "user.nama",
                     className: "",
                     orderable: true,
                     searchable: true

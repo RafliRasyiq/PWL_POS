@@ -51,8 +51,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kode Penjualan</th>
+                                <th>Nama User</th>
                                 <th>Pembeli</th>
-                                <th>User ID</th>
                                 <th>Tanggal Penjualan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -99,16 +99,16 @@
                     width: "20%",
                     orderable: true,
                     searchable: true
-                }, {
+                },{
+                    data: "user.nama",
+                    className: "",
+                    width: "14%",
+                    orderable: true,
+                    searchable: true
+                },{
                     data: "pembeli",
                     className: "",
                     width: "27%",
-                    orderable: true,
-                    searchable: true
-                }, {
-                    data: "user.user_id",
-                    className: "",
-                    width: "14%",
                     orderable: true,
                     searchable: true
                 }, {
