@@ -24,7 +24,7 @@ class RegisterController extends Controller
         return response()->json($validator->errors(), 422);
     }
     // create user
-    $image = request()->image;
+    $image = $request->image;
     $user = UserModel::create([
         'username' => $request->username,
         'nama' => $request->nama,
